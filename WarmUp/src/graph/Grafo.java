@@ -25,7 +25,17 @@ public class Grafo implements IGrafo {
     public Set<Vertice> getAdjacentes(Vertice v) {
         Set<Vertice> adjacentes = new HashSet<Vertice>();
 
+        for(Aresta aresta: this.arestas) {
+            if(aresta.getA() == v) {
+                adjacentes.add(aresta.getB());
+            }
+
+            if(aresta.getB() == v) {
+                adjacentes.add(aresta.getA());
+            }
+        }
         return adjacentes;
+
     }
 
     @Override
